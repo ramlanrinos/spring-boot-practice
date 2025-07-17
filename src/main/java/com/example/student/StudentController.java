@@ -26,4 +26,10 @@ public class StudentController {
         Student savedStudent = studentService.addStudent(student);
         return ResponseEntity.ok(savedStudent);
     }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
+        studentService.deleteStudent(id);
+        return ResponseEntity.noContent().build();
+    }
 }
